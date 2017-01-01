@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/2d-breakout-game-mozilla.iml" filepath="$PROJECT_DIR$/.idea/2d-breakout-game-mozilla.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mozilla-2d-breakout.iml" filepath="$PROJECT_DIR$/.idea/mozilla-2d-breakout.iml" />
     </modules>
   </component>
 </project>
