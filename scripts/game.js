@@ -18,7 +18,7 @@ var brickPadding = 10;
 var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
 var score = 0;
-var lives = 3;
+var lives = 3000;
 
 var bricks = [];
 for (c = 0; c < brickColumnCount; c++) {
@@ -50,7 +50,12 @@ function keyUpHandler(e) {
 
 function mouseMoveHandler(e) {
     var relativeX = e.clientX - canvas.offsetLeft;
-    if (relativeX > 0 && relativeX < canvas.width) {
+    console.log("relativeX = " + relativeX);
+    console.log("paddleX = " + paddleX);
+    console.log("canvas.width =" + canvas.width);
+    var valor = paddleWidth - paddleWidth / 2;
+    console.log("paddleWidth - paddleWidth / 2 = " + valor);
+    if (relativeX > paddleWidth - paddleWidth / 2 && relativeX < canvas.width - paddleWidth / 2) {
         paddleX = relativeX - paddleWidth / 2;
     }
 }
@@ -160,7 +165,9 @@ function draw() {
 
     x += dx;
     y += dy;
-    requestAnimationFrame(draw);
+    //requestAnimationFrame(draw);
+
 }
 
-draw();
+//draw();
+setInterval(draw, 100);
