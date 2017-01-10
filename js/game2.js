@@ -15,7 +15,7 @@ function Game(canvas, ctx, ball) {
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
-var ball = new Ball(ctx, canvas.width/2, canvas.height-30, 10, "#0095DD", 2);
+var ball = new Ball(canvas, ctx, canvas.width/2, canvas.height-30, 10, "#0095DD", 2);
 var game = new Game(canvas, ctx, ball);
 
 game.draw();

@@ -1,4 +1,5 @@
-function Ball(ctx, x, y, ballRadius, color, ballSpeed) {
+function Ball(canvas, ctx, x, y, ballRadius, color, ballSpeed) {
+    this.canvas = canvas;
     this.ctx = ctx;
     this.x = x;
     this.y = y;
