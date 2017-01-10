@@ -5,6 +5,8 @@ function Ball(ctx, x, y, ballRadius, color, ballSpeed) {
     this.ballRadius = ballRadius;
     this.color = color;
     this.ballSpeed = ballSpeed;
+    this.dx = ballSpeed;
+    this.dy = -ballSpeed;
     
     this.draw = function () {
         this.ctx.beginPath();
@@ -14,8 +16,8 @@ function Ball(ctx, x, y, ballRadius, color, ballSpeed) {
         this.ctx.closePath();
     };
     
-    this.changePos = function () {
-        this.x += this.ballSpeed;
-        this.y += -this.ballSpeed;
+    this.changePosition = function () {
+        this.x += this.dx;
+        this.y += this.dy;
     };
 }

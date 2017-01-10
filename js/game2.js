@@ -6,7 +6,7 @@ function Game(canvas, ctx, ball) {
     this.draw = function() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ball.draw();
-        this.ball.changePos();
+        this.ball.changePosition();
 
         requestAnimationFrame(this.draw.bind(this));
     };
