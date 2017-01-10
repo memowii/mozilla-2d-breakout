@@ -4,7 +4,6 @@ function Ball(ctx, x, y, ballRadius, color, ballSpeed) {
     this.y = y;
     this.ballRadius = ballRadius;
     this.color = color;
-    this.ballSpeed = ballSpeed;
     this.dx = ballSpeed;
     this.dy = -ballSpeed;
     
