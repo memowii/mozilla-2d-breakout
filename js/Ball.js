@@ -27,5 +27,5 @@ function Ball(x, y, ballRadius, color, ballSpeed) {
         if (this.y + this.dy > canvas.height - this.ballRadius || this.y + this.dy < ballRadius) {
             this.dy = -this.dy;
         }
-    }
+    };
 }
