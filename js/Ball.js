@@ -14,7 +14,7 @@ function Ball(x, y, ballRadius, color, ballSpeed) {
         ctx.closePath();
     };
     
-    this.changePosition = function () {
+    this.moveIt = function () {
         this.x += this.dx;
         this.y += this.dy;
     };
