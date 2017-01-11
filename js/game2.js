@@ -4,6 +4,7 @@ function Game(ball) {
     this.draw = function() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         this.ball.draw();
+        this.ball.checkCollision();
         this.ball.changePosition();
 
         requestAnimationFrame(this.draw.bind(this));
@@ -13,7 +14,7 @@ function Game(ball) {
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
-var ball = new Ball(canvas, ctx, canvas.width/2, canvas.height-30, 10, "#0095DD", 2);
+var ball = new Ball(canvas.width/2, canvas.height-30, 10, "#0095DD", 2);
 var game = new Game(ball);
 
 game.draw();

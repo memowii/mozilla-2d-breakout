@@ -1,6 +1,4 @@
-function Ball(canvas, ctx, x, y, ballRadius, color, ballSpeed) {
-    this.canvas = canvas;
-    this.ctx = ctx;
+function Ball(x, y, ballRadius, color, ballSpeed) {
     this.x = x;
     this.y = y;
     this.ballRadius = ballRadius;
@@ -9,15 +7,25 @@ function Ball(canvas, ctx, x, y, ballRadius, color, ballSpeed) {
     this.dy = -ballSpeed;
     
     this.draw = function () {
-        this.ctx.beginPath();
-        this.ctx.arc(this.x, this.y, this.ballRadius, 0, Math.PI * 2);
-        this.ctx.fillStyle = this.color;
-        this.ctx.fill();
-        this.ctx.closePath();
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.ballRadius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.closePath();
     };
     
     this.changePosition = function () {
         this.x += this.dx;
         this.y += this.dy;
     };
+    
+    this.checkCollision = function () {
+        if (this.x + this.dx > canvas.width - this.ballRadius || this.x + this.dx < this.ballRadius) {
+            this.dx = -this.dx;
+        }
+
+        if (this.y + this.dy > canvas.height - this.ballRadius || this.y + this.dy < ballRadius) {
+            this.dy = -this.dy;
+        }
+    }
 }
