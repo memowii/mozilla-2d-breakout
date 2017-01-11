@@ -1,10 +1,8 @@
-function Game(canvas, ctx, ball) {
-    this.canvas = canvas;
-    this.ctx = ctx;
+function Game(ball) {
     this.ball = ball;
 
     this.draw = function() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         this.ball.draw();
         this.ball.changePosition();
 
@@ -16,6 +14,6 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
 var ball = new Ball(canvas, ctx, canvas.width/2, canvas.height-30, 10, "#0095DD", 2);
-var game = new Game(canvas, ctx, ball);
+var game = new Game(ball);
 
 game.draw();
