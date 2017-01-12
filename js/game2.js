@@ -6,11 +6,19 @@ function Game(player, ball) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         this.ball.draw();
         this.player.paddle.draw();
-        this.ball.checkCollision();
+        this.ball.checkCollision(this.player.paddle);
+        this.isPlayerBeaten(this.ball);
         this.player.checkPressedButton();
         this.ball.moveIt();
 
         requestAnimationFrame(this.draw.bind(this));
+    };
+
+    this.isPlayerBeaten = function (ball) {
+        if (ball.ballHitBottom) {
+            alert("GAME OVER");
+            document.location.reload();
+        }
     };
 };
 

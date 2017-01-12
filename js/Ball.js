@@ -5,6 +5,7 @@ function Ball(x, y, ballRadius, color, ballSpeed) {
     this.color = color;
     this.dx = ballSpeed;
     this.dy = -ballSpeed;
+    this.ballHitBottom = false;
     
     this.draw = function () {
         ctx.beginPath();
@@ -19,13 +20,25 @@ function Ball(x, y, ballRadius, color, ballSpeed) {
         this.y += this.dy;
     };
     
-    this.checkCollision = function () {
+    this.checkCollision = function (paddle) {
         if (this.x + this.dx > canvas.width - this.ballRadius || this.x + this.dx < this.ballRadius) {
             this.dx = -this.dx;
         }
 
+        if (this.y + this.dy < this.ballRadius) {
+            this.dy = -this.dy;
+        } else if (this.y + this.dy > canvas.height - this.ballRadius) {
+            if (this.x > paddle.x && this.x < paddle.x + paddle.width) {
+                this.dy = -this.dy;
+            } else {
+                this.ballHitBottom = true;
+            }
+        }
+
         if (this.y + this.dy > canvas.height - this.ballRadius || this.y + this.dy < ballRadius) {
             this.dy = -this.dy;
+        } else {
+
         }
     };
 }
