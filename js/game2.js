@@ -1,9 +1,11 @@
-function Game(player, ball) {
+function Game(player, ball, brickGrid) {
     this.player = player;
     this.ball = ball;
+    this.brickGrid = brickGrid;
 
-    this.draw = function() {
+    this.draw = function () {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        this.brickGrid.draw();
         this.ball.draw();
         this.player.paddle.draw();
         this.ball.checkCollision(this.player.paddle);
@@ -25,9 +27,12 @@ function Game(player, ball) {
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
-var ball = new Ball(canvas.width/2, canvas.height-30, 10, "#0095DD", 2);
-var paddle = new Paddle((canvas.width-75)/2, canvas.height-10, 75, 10, "#0095DD");
+var ball = new Ball(canvas.width / 2, canvas.height - 30, 10, "#0095DD", 2);
+var paddle = new Paddle((canvas.width - 75) / 2, canvas.height - 10, 75, 10, "#0095DD");
 var player = new Player(paddle, 3);
-var game = new Game(player, ball);
+var brick = new Brick(75, 20, 10, "#0095DD");
+var brickGrid = new BrickGrid(brick, 5, 3, 30, 30);
+brickGrid.buildGrid();
+var game = new Game(player, ball, brickGrid);
 
 game.draw();

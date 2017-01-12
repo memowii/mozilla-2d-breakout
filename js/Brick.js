@@ -1,16 +1,14 @@
-function Brick(x, y, width, height, color) {
-    this.x = x;
-    this.y = y;
+function Brick(width, height, padding, color) {
     this.width = width;
     this.height = height;
+    this.padding = padding;
     this.color = color;
-    this.status = 1;
 
-    this.draw = function () {
+    this.draw = function (x, y) {
         ctx.beginPath();
-        ctx.rect(this.x, this.y, this.width, this.height);
+        ctx.rect(x, y, this.width, this.height);
         ctx.fillStyle = this.color;
         ctx.fill();
         ctx.closePath();
-    }
+    };
 }
