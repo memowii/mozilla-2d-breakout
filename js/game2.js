@@ -2,12 +2,16 @@ function Game(player, ball, brickGrid) {
     this.player = player;
     this.ball = ball;
     this.brickGrid = brickGrid;
+    score = 0;
 
     this.draw = function () {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         this.brickGrid.draw();
         this.ball.draw();
         this.player.paddle.draw();
+        // draw scores
+        // draw lives
+        this.brickGrid.collisionDetection(this.ball);
         this.ball.checkCollision(this.player.paddle);
         this.isPlayerBeaten(this.ball);
         this.player.checkPressedButton();
