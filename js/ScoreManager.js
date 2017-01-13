@@ -3,11 +3,11 @@ function ScoreManager(x, y, font, fillStyle) {
     this.fillStyle = fillStyle;
     this.x = x;
     this.y = y;
-    score = 0;
+    this.score = 0;
 
     this.draw = function () {
         ctx.font = this.font;
         ctx.fillStyle = this.fillStyle;
-        ctx.fillText("Score: " + score, this.x, this.y);
+        ctx.fillText("Score: " + this.score, this.x, this.y);
     }
 }
