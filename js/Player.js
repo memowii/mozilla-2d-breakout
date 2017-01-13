@@ -28,6 +28,14 @@ function Player(paddle, lives) {
         }
     };
 
+    this.mouseMoveHandler = function (e) {
+        var relativeX = e.clientX - canvas.offsetLeft;
+        if(relativeX > 0 && relativeX < canvas.width) {
+            this.paddle.x = relativeX - this.paddle.width / 2;
+        }
+    };
+
     document.addEventListener("keydown", this.keyDownHandler.bind(this), false);
     document.addEventListener("keyup", this.keyUpHandler.bind(this), false);
+    document.addEventListener("mousemove", this.mouseMoveHandler.bind(this), false);
 }
