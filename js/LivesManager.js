@@ -1,13 +1,14 @@
-function ScoreManager(x, y, font, fillStyle) {
+function LivesManager(x, y, font, fillStyle, lives) {
     this.font = font;
     this.fillStyle = fillStyle;
     this.x = x;
     this.y = y;
-    this.score = 0;
+    this.lives = lives;
 
     this.draw = function () {
         ctx.font = this.font;
         ctx.fillStyle = this.fillStyle;
-        ctx.fillText("Score: " + this.score, this.x, this.y);
+        ctx.fillText("Lives: " + this.lives, x, y);
     };
+
 }
