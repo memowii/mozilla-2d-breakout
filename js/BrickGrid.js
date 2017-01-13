@@ -46,5 +46,5 @@ function BrickGrid(brick, gridColumnCount, gridRowCount, gridOffsetTop, gridOffs
                 }
             }
         }
-    }
+    };
 }
