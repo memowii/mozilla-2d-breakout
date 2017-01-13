@@ -1,17 +1,17 @@
-function Game(player, ball, brickGrid) {
+function Game(player, ball, brickGrid, scoreManager) {
     this.player = player;
     this.ball = ball;
     this.brickGrid = brickGrid;
-    score = 0;
+    this.scoreManager = scoreManager;
 
     this.draw = function () {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         this.brickGrid.draw();
         this.ball.draw();
         this.player.paddle.draw();
-        // draw scores
+        this.scoreManager.draw();
         // draw lives
-        this.brickGrid.collisionDetection(this.ball);
+        this.brickGrid.collisionDetection(this.ball, this.scoreManager);
         this.ball.checkCollision(this.player.paddle);
         this.isPlayerBeaten(this.ball);
         this.player.checkPressedButton();
@@ -37,6 +37,7 @@ var player = new Player(paddle, 3);
 var brick = new Brick(75, 20, 10, "#0095DD");
 var brickGrid = new BrickGrid(brick, 5, 3, 30, 30);
 brickGrid.buildGrid();
-var game = new Game(player, ball, brickGrid);
+var scoreManager = new ScoreManager(8, 20, "16px Arial", "#0095DD");
+var game = new Game(player, ball, brickGrid, scoreManager);
 
 game.draw();

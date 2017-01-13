@@ -29,7 +29,7 @@ function BrickGrid(brick, gridColumnCount, gridRowCount, gridOffsetTop, gridOffs
         }  
     };
     
-    this.collisionDetection = function (ball) {
+    this.collisionDetection = function (ball, scoreManager) {
         for (c = 0; c < this.gridColumnCount; c++) {
             for (r = 0; r < this.gridRowCount; r++) {
                 var b = bricks[c][r];
@@ -37,8 +37,8 @@ function BrickGrid(brick, gridColumnCount, gridRowCount, gridOffsetTop, gridOffs
                     if (ball.x > b.x && ball.x < b.x + this.brick.width && ball.y > b.y && ball.y < b.y + this.brick.height) {
                         ball.dy = -ball.dy;
                         b.status = 0;
-                        score++;
-                        if (score == this.gridRowCount * this.gridColumnCount) {
+                        scoreManager.score++;
+                        if (scoreManager.score == this.gridRowCount * this.gridColumnCount) {
                             alert("YOU WIN, CONGRATULATIONS!");
                             document.location.reload();
                         }
